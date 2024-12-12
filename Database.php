@@ -2,21 +2,23 @@
 
 
 class Database {
-    public function query(){
-        $dsn = "mysql:host=localhost;port=3306;user=root;password=;dbname=blog_ipb23;charset=utf8mb4";
+    public $pdo;
+    
+    public function __construct($config){
 
-        $pdo = new PDO($dsn);
-        
-        //sagatavo vaicājumu
-        $statement =  $pdo->prepare("SELECT * FROM post");
+        $dsn = "mysql:" . http_build_query($config, "", ";");
 
-//ispildīt statement
-        $statement->execute();
-
-        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return $data;
-
+        $this->pdo = new PDO($dsn);
+        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 
+
+    public function query($sql) {
+        // Sagatavo vaicājumu (statement) 
+        $statement = $this->pdo->prepare($sql); // prepare ir metode (līdzīk funkcijai)
+        // Izpildīt statements
+        $statement->execute();
+        // Atgriež datus
+        return $statement;
+    }
 }

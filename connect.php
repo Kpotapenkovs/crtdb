@@ -1,9 +1,12 @@
 <?php
-
 include "Database.php";
+include "functions.php";
 
-$db = new database ();
-$post = $db->query();
+$config = require("config.php");
+
+$db = new database ($config["database"]);
+
+$post = $db->query("SELECT * FROM post")->fetchAll(PDO::FETCH_ASSOC);
 
 
 
