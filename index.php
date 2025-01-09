@@ -1,6 +1,7 @@
 <?php
 include "Database.php";
 include "functions.php";
+include "views/components/navbar.php";
 
 $config = require("config.php");
 
@@ -24,7 +25,6 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "" ){
 }
 
 $posts = $db->query($select , $params)->fetchAll();
-
-
+$style = "css/style.css";
 
 include "views/index.view.php";

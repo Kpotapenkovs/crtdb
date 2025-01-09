@@ -1,4 +1,6 @@
-
+<?php
+include "components/header.php";
+?>
 <h1>blog</h1>
 
 <form>
@@ -24,3 +26,5 @@
   <?php } ?>
 
 </ul>
+</body>
+</html>
