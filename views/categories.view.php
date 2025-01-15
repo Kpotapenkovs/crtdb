@@ -19,7 +19,7 @@ include "components/header.php";
             echo "<div class='no-results'>No categories found.</div>";
         } else {
             echo "<ul>";
-            foreach ($posts as $post) {
+            foreach ($posts as $post){ 
                 echo "<li>" . $post["category_name"] . "</li>";
             }
             echo "</ul>";

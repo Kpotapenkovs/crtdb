@@ -9,4 +9,10 @@ function dd($data){
     exit();
 }
 
+function redirectIfNotFound($location = "/") {
+    http_response_code(404);
+    header("location: $location", 302);
+    exit();
+}
+
 ?>

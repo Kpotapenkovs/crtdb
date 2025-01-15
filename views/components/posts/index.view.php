@@ -1,9 +1,10 @@
 <?php
-include "components/header.php";
+include "views/components/header.php";
 ?>
 <h1>blog</h1>
 
-<form>
+<div class="container">
+<form class="search-form">
 <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>'/>
 <button>meklēt</button>
 </form>
@@ -20,11 +21,12 @@ include "components/header.php";
 
 <?php foreach ($posts as $post){ ?>
     <li>
-      <?= $post["content"] ?>
+    <a href="show?id=<?= $post["id"] ?>"><?= $post["content"] ?></a>
     </li>
 
   <?php } ?>
+    </ul>
 
-</ul>
+</div>
 </body>
 </html>

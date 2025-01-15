@@ -1,6 +1,6 @@
 <?php
 
-
+$db = new database ($config["database"]);
 
 $select = "SELECT * FROM posts";
 
@@ -10,15 +10,14 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "" ){
 
     $search_query = "%" . $_GET["search_query"] . "%";
 
-    $select .= " WHERE category_name LIKE :category_name";
+    $select .= " WHERE content LIKE :content";
 
-    $params = ["category_name" => $search_query];
+    $params = ["content" => $search_query];
 
 }
 
-
 $posts = $db->query($select , $params)->fetchAll();
 
-include "views/categories.view.php";
-?>
+$style = "css/style.css";
 
+include "views/components/posts/index.view.php";
