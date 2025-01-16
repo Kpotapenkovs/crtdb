@@ -6,7 +6,7 @@ include "views/components/header.php";
 <div class="container">
 <form class="search-form">
 <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>'/>
-<button>meklēt</button>
+<button type="submit">meklēt</button>
 </form>
 
 <?php if (count ($posts) == 0){ ?>
@@ -21,7 +21,7 @@ include "views/components/header.php";
 
 <?php foreach ($posts as $post){ ?>
     <li>
-    <a href="show?id=<?= $post["id"] ?>"><?= $post["content"] ?></a>
+    <a href="show?id=<?= $post["id"] ?>"><?= htmlspecialchars($post["content"]) ?></a>
     </li>
 
   <?php } ?>

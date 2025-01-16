@@ -20,7 +20,7 @@ include "components/header.php";
         } else {
             echo "<ul>";
             foreach ($posts as $post){ 
-                echo "<li>" . $post["category_name"] . "</li>";
+                echo "<li>" . htmlspecialchars($post["category_name"]) . "</li>";
             }
             echo "</ul>";
         }
