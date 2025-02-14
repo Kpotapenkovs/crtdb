@@ -11,4 +11,4 @@ if (!$post) {
     redirectIfNotFound();
 }
 
-include "views/components/posts/show.view.php";
+require "views/components/posts/show.view.php";
