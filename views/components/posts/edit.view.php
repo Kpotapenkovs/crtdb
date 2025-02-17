@@ -2,9 +2,12 @@
 
 <div class="container">
 
+
+
 <h1>rediģēt bloga ierakstu</h1>
+
 <form class="search-form" method="POST">
-<label><input value="<?= $_POST['content'] ?? '' ?>" name="content" /></label>
+<label><input value="<?= $kluda ?? htmlspecialchars($posts["content"]) ?? '' ?>" name="content" /></label>
 <button type="submit">saglabāt</button>
 </form>
 </div>

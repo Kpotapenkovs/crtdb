@@ -12,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE posts SET content = :content WHERE id = :id";
     $params = ["content" => $_POST["content"], "id" => $_GET["id"]];
+    
+    $kluda = $_POST["content"];
 
     if (!Validator::string($_POST["content"], max: 50)){
         $errors["content"] = "Saturam jābūt ievadītam, bet ne garākam par 50 rakstzīmēm";
