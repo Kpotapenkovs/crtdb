@@ -1,22 +1,21 @@
 <?php
 
+
 $sql = "SELECT * FROM posts WHERE id = :id";
 
-$params = ["id" => $_GET["id"]];
+$params = ["id" => $_POST["id"]];
 
-$posts = $db->query($sql, $params)->fetch();
-   
+$post = $db->query($sql, $params)->fetch();
+
+if (!isset($_POST["id"])){
+    redirectIfNotFound();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
 $sql = "DELETE FROM posts WHERE id = :id";    
-
-$posts = $db->query($sql, $params)->fetchAll();
+$params = ["id" => $_POST["id"]];
+$post = $db->query($sql, $params)->fetchAll();
 header("Location: /"); exit();
     
-   
-
-
-  
-
-
-
-
-
+}
